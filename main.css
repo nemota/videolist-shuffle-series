@@ -1,0 +1,191 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* by nemota
+*/
+
+/*全体*/
+
+html{
+	background-color: white;
+}
+
+body{
+	width: 100%;
+	background-color: blue;
+	font-size: 20px;
+	text-align: center;
+}
+#input,#list,#output{
+	width: 100%;
+}
+:focus{
+   outline: 0px solid #2196f3;
+}
+.float-clear{
+	clear: both;
+}
+
+/*header領域*/
+header{
+	height: 40px;
+	box-shadow: 0 1px 5px #333;
+	position: relative;
+}
+header h1{
+	width: 100%;
+	position: absolute;
+	top: 10px;
+}
+h2{
+	font-size: 40px;
+	margin-bottom: 20px;
+}
+/*input領域*/
+
+#input{
+	padding-top: 10px;
+	background-color: red;
+	padding-bottom: 20px;
+}
+#input-control{
+	margin-bottom: 10px;
+	padding-right: 100px;
+}
+#input-list{
+	margin-bottom: 10px;
+	width: 750px;
+	height: 500px;
+}
+#input-seriestitle{
+	width: 300px;
+	height: 22px;
+	font-size: 20px;
+}
+#input-add,#input-clear{
+	background-color: yellow;
+	width: 100px;
+	height: 40px;
+	border-width: 3px;
+}
+#input-add{
+	margin-right: 100px;
+}
+/*list領域*/
+
+#list{
+	background-color: yellow;
+	height:600px;
+	overflow-y: scroll;
+}
+.list-series-main{
+	display: block;
+	height: 40px;
+	border: black 1px solid;
+}
+.list-series-title{
+	float: left;
+	padding-top:10px;
+	padding-left: 20px;
+}
+.list-series-buttonwrap{
+	height: 40px;
+	float: right;
+}
+.list-series-buttonwrap button{
+	height: 40px;
+	width: 60px;
+	border-width: 3px;
+}
+
+.list-series-elements{
+	margin-left: 50px;
+	display: none;//こいつをスクリプトから操作
+}
+.list-series-elements li{
+	display: block;
+	height:22px;
+	text-align: left;
+	font-size: 17px;
+}
+
+/*output領域*/
+
+#output{
+	background-color: green;
+	padding-bottom: 30px;
+}
+#output-listforshuffle-wrap,#output-shuffledlist-wrap{
+	display: inline-block;
+	width: 600px;
+}
+#output-listforshuffle,#output-shuffledlist{
+	width: 500px;
+	height: 500px;	
+}
+.output-control{
+	height: 100px;
+	display: inline-block;
+	width: 300px;
+	margin-bottom: 20px;
+}
+.output-control button{
+	height: 40px;
+	width: 140px;
+	border-width: 3px;	
+	background-color: red;
+}
+/*footer領域*/
+footer{
+	height: 40px;
+	padding-top: 10px;
+}
+footer a{
+	color: white;
+}

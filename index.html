@@ -9,53 +9,80 @@
 	</head>
 	<body>
 		<header>
-			<h1>タイトル</h1>		
+			<h1>動画リストをシャッフルするやつ</h1>		
 		</header>
 		<section id="input">
 			<div id="input-wrap">
-				<input id="input-seriestitle" type="text"><br>
-				<textarea id="input-list">
-				
-				</textarea><br>
+				<h2>
+					リストにシリーズを追加
+				</h2>
+				<div id="input-control">
+					シリーズ名
+					<input id="input-seriestitle" type="text"><br>
+				</div>
+				<textarea id="input-list"></textarea>
+				<br>
 				<button id="input-add">リストに追加</button>
 				<button id="input-clear">クリア</button>
 			</div>
 		</section>
 		<section id="list">
 			<ul id="list-wrap">
-				//テンプレ
+				<h2>
+					現在のリスト
+				</h2>
+				<!--テンプレ-->
+				<!--
 				<li class="list-series" id="list-series-1">
-					<div class="list-series-title">
-						シリーズのタイトル
+					<div class="list-series-main">
+						<div class="list-series-title">
+							シリーズのタイトル
+						</div>
+						<div class="list-series-buttonwrap">
+							<button class="list-series-openbutton">展開</button>
+							<button class="list-series-editbutton">編集</button>
+						</div>
+						<div class="float-clear"></div>
 					</div>
-					<div class="list-series-buttonwrap">
-						<button class="list-series-editbutton">編集</button>
-					</div>
-					<ul class=list-series-elements>
-						<li><a href="">動画URL</a></li>
-						<li><a href="">動画URL</a></li>
+					<ul class="list-series-elements">
+						<li><a href="">動画URL1</a></li>
+						<li><a href="">動画URL2</a></li>
+						<li><a href="">動画URL3</a></li>
+						<li><a href="">動画URL4</a></li>
 					</ul>
 				</li>
+				-->
+				
 				
 			</div>
 		</section>
 		<section id="output">
-		<div id="output-wrap">
-			<div id="output-listforshuffle-wrap">
-					説明文
-					<textarea id="output-listforshuffle">
-					</textarea>
+			<div id="output-wrap">
+				<h2>
+					リストを出力
+				</h2>
+				<div id="output-listforshuffle-wrap">
+					<div class="output-control">
+						↓を保存しておいて、このサイトで入力すると再び同じ状態でシャッフルできます<br>
+					</div>
+					
+					<textarea id="output-listforshuffle"></textarea>
 				</div>
 				<div id="output-shuffledlist-wrap">
-					<div>
+					<div class="output-control">
+						シャッフル済みリストです。cytubeの動画追加欄に貼り付けるなどしてください<br>
 						<button id="output-notshuffle">シャッフルしない</button>
 						<button id="output-shuffle">シャッフル</button>
 					</div>
-					<textarea id="output-shuffledlist">
-					</textarea>
+					<textarea id="output-shuffledlist"></textarea>
 				</div>
 			</div>
 		</section>
+		<footer>
+			by nemota
+			<a href="https://twitter.com/nemota_cookie">twitter</a>
+			<a href="https://github.com/nemota">github</a>
+		</footer>
 		<script src="main.js"></script>
 	</body>
 </html>
