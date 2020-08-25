@@ -108,7 +108,7 @@ h2{
 	height: 22px;
 	font-size: 20px;
 }
-#input-add,#input-clear{
+#input-add-btn,#input-clear-btn{
 	background-color: yellow;
 	width: 100px;
 	height: 40px;
