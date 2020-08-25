@@ -1,5 +1,5 @@
 # videolist-shuffle-series
-[nemota.github.io/videolist-shuffle-series](nemota.github.io/videolist-shuffle-series)
+[nemota.github.io/videolist-shuffle-series](https://nemota.github.io/videolist-shuffle-series)
 
 動画をシャッフルするためのツールです。
 
