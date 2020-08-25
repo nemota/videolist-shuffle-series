@@ -146,7 +146,8 @@ h2{
 
 .list-series-elements{
 	margin-left: 50px;
-	display: none;//こいつをスクリプトから操作
+	/*display: none;//こいつをスクリプトから操作
+	*/
 }
 .list-series-elements li{
 	display: block;
