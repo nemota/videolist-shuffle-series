@@ -15,10 +15,11 @@ var $list=document.getElementById("list");
 var $list_wrap=document.getElementById("list-wrap");
 
 //output周辺
-var output_listforshuffle=document.getElementById("output-listforshuffle");
-var output_notshuffle_btn=document.getElementById("output-notshuffle-btn");
-var output_shuffle_btn=document.getElementById("output-shuffle-btn");
-var output_shuffledlist=document.getElementById("output-shuffledlist");
+var $output_listforshuffle=document.getElementById("output-listforshuffle");
+var $output_listforshuffle_btn=document.getElementById("output-listforshuffle-btn");
+var $output_notshuffle_btn=document.getElementById("output-notshuffle-btn");
+var $output_shuffle_btn=document.getElementById("output-shuffle-btn");
+var $output_shuffledlist=document.getElementById("output-shuffledlist");
 
 /*その他のグローバル変数*/
 
@@ -51,11 +52,25 @@ function addInputList() {
 	for(var i=0;i<inputArray.length;i++){
 		inputArray[i]=inputArray[i].trim();
 	}
-	//シリーズ名が空なら単品群と認識
-	if(seriesTitle==""){
+	if(seriesTitle==""){//シリーズ名が空なら単品群と認識
 		for(var i=0;i<inputArray.length;i++){
 			currentList.push(inputArray[i]);
 		}
+	}else if(seriesTitle=="ikikaereikikaere..."){//特定のシリーズ名ならシャッフル用リストの入力と判断
+		if(!confirm("現在のリストすべてを上書きします。よろしいですか？"))return;
+		try{
+			currentList=JSON.parse($input_list.value);
+		}catch{
+			alert("不正な形式です。");
+		}
+		//シリーズ数を取得
+		for (var i=0;i<currentList.length;i++) {
+			if(typeof currentList[i]=="object"){
+				seriesCount=i+1;
+			}
+		}
+		showList();
+		
 	}else{
 		var seriesToAddArray=[seriesTitle];
 		seriesToAddArray=seriesToAddArray.concat(inputArray);
@@ -212,3 +227,50 @@ function onEditButtonClicked(e) {
 }
 
 /*output周辺*/
+
+//次回使う配列を出力
+function outputListForShuffle() {
+	$output_listforshuffle.value=JSON.stringify(currentList);
+}
+$output_listforshuffle_btn.onclick=outputListForShuffle;
+
+//outputListを展開してカンマで区切って出力(Cytube想定)
+//改行があるとcytubeがうまく読み取ってくれないので入っていない
+function outputListForCytube() {
+	var outputText="";
+	for(var i=0;i<outputList.length;i++){
+		if(typeof outputList[i]=="string"){
+			outputText+=outputList[i]+",";
+		}else{
+			for(var j=1;j<outputList[i].length;j++){
+				outputText+=outputList[i][j]+",";
+			}
+		}
+	}
+	//最後のカンマを取る
+	outputText=outputText.substring(0,outputText.length-1);
+	//テキストエリアに表示
+	$output_shuffledlist.value=outputText;
+}
+
+//リストをシャッフルしてテキストエリアに出力
+function makeListShuffled() {
+	outputList=[].concat(currentList);
+	var swaptmp;
+	//Fisher-Yates shuffleでシャッフル
+	for (var i=outputList.length-1;i>0;i--) {
+		var j=Math.floor(Math.random()*(i+1));
+		swaptmp=outputList[i];
+		outputList[i]=outputList[j];
+		outputList[j]=swaptmp;
+	}
+	outputListForCytube();
+}
+$output_shuffle_btn.onclick=makeListShuffled;
+
+//シャッフル前の状態で出力
+function makeListUnshuffled() {
+	outputList=[].concat(currentList);
+	outputListForCytube();
+}
+$output_notshuffle_btn.onclick=makeListUnshuffled;

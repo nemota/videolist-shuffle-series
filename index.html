@@ -4,18 +4,27 @@
 		<title>シャッフル</title>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="main.css">
-		<meta name="description" content="">
-		<meta name="keywords" content="">
+		<meta name="description" content="塊と単品が混ざった動画リストを作り、塊の状態を保ってシャッフルするツール">
+		<meta name="keywords" content="cytube,video,shuffle,動画,シャッフル">
 	</head>
 	<body>
 		<header>
-			<h1>動画リストをシャッフルするやつ</h1>		
+			<h1>動画リストをシャッフルするやつ</h1><br>
+			説明→<a href="https://github.com/nemota/videolist-shuffle-series">ここ</a>
 		</header>
 		<section id="input">
 			<div id="input-wrap">
 				<h2>
 					リストにシリーズを追加
 				</h2>
+				<div id="input-explain">
+					追加する動画群のシリーズ名を上のテキストエリアに、
+					","で区切った動画URLのリストを下のテキストエリアに、入力します。<br>
+					シリーズ名を空白にすると単品として追加されます。<br><br>
+					過去に出力したシャッフル用リストを使いたいときは、<br>
+					上のテキストエリアに"ikikaereikikaere..."、
+					下のテキストエリアにそのリストを入力してください。
+				</div>
 				<div id="input-control">
 					シリーズ名
 					<input id="input-seriestitle" type="text"><br>
@@ -30,6 +39,11 @@
 			<h2>
 				現在のリスト
 			</h2>
+			<div id="list-explain">
+				展開ボタンクリックでそのシリーズの動画一覧を表示、もう一度クリックで非表示できます。<br>
+				編集ボタンをクリックするとそのシリーズに属する動画のリストを編集できます。(リストから消え、入力エリアに移ります)<br>
+				シリーズの削除は編集→クリアで行ってください
+			</div>
 			<ul id="list-wrap">
 			
 				<li class="list-series" id="series0">
@@ -53,18 +67,21 @@
 				</h2>
 				<div id="output-listforshuffle-wrap">
 					<div class="output-control">
+						(シャッフル用リストを出力)<br>
 						↓を保存しておいて、このサイトで入力すると再び同じ状態でシャッフルできます<br>
+						<button id="output-listforshuffle-btn">出力</button>
 					</div>
 					
-					<textarea id="output-listforshuffle"></textarea>
+					<textarea id="output-listforshuffle" readonly></textarea>
 				</div>
 				<div id="output-shuffledlist-wrap">
 					<div class="output-control">
+						(再生用リストを出力)<br>
 						シャッフル済みリストです。cytubeの動画追加欄に貼り付けるなどしてください<br>
 						<button id="output-notshuffle-btn">シャッフルしない</button>
 						<button id="output-shuffle-btn">シャッフル</button>
 					</div>
-					<textarea id="output-shuffledlist"></textarea>
+					<textarea id="output-shuffledlist" readonly></textarea>
 				</div>
 			</div>
 		</section>

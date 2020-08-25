@@ -74,14 +74,17 @@ body{
 
 /*header領域*/
 header{
-	height: 40px;
+	height: 80px;
 	box-shadow: 0 1px 5px #333;
 	position: relative;
+	color: white;
+	padding-top: 10px;
 }
 header h1{
 	width: 100%;
-	position: absolute;
-	top: 10px;
+}
+header a{
+	color: yellow;
 }
 h2{
 	font-size: 40px;
@@ -93,6 +96,9 @@ h2{
 	padding-top: 10px;
 	background-color: red;
 	padding-bottom: 20px;
+}
+#input-explain{
+	margin-bottom: 20px;
 }
 #input-control{
 	margin-bottom: 10px;
@@ -123,6 +129,9 @@ h2{
 	background-color: yellow;
 	height:600px;
 	overflow-y: scroll;
+}
+#list-explain{
+	margin-bottom: 20px;
 }
 .list-series-main{
 	display: block;
@@ -171,7 +180,7 @@ h2{
 	height: 500px;	
 }
 .output-control{
-	height: 100px;
+	height: 120px;
 	display: inline-block;
 	width: 300px;
 	margin-bottom: 20px;
